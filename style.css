@@ -1,23 +1,116 @@
 body {
     background-color: #975C5C;
-    margin:0;
-    height:100vh;
-    
-    
+    margin: 0;
+    height: 100vh;
+    overflow: hidden; 
 }
 header {
     background-color: #D9D9D9;
-    display:flex;
-    align-items:center;
-    justify-content:space-around;
-    
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px 0; 
 }
 main {
-    display:flex;
-     align-items:center;
-    justify-content:center;
-    height:100%;
+    position: relative; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 120px); 
 }
 canvas {
-    background-color:#D9D9D9;
+    background-color: #D9D9D9;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); 
+}
+
+.pictures {
+    display: none;
+    background-color: white;
+    padding: 20px;
+    position: absolute;
+    left: 50px;
+    bottom: 50px;
+    z-index: 100; 
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+#paintpalette {
+    background-image: url(PaintPalette.png);
+    background-size: cover;
+    width: 100px;
+    height: 100px;
+    border: none;
+    cursor: pointer;
+}
+
+
+
+.canvas-text-box {
+    position: absolute;
+    
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.9);
+    border: 2px dashed #4a2d2d; 
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: move; 
+    z-index: 50;
+    user-select: none;
+}
+
+.canvas-text-box input {
+    background: transparent;
+    border: none;
+    outline: none;
+    font-family: 'Arial', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    width: 160px; 
+    cursor: text;
+}
+
+
+.canvas-text-box .delete-text-btn {
+    margin-left: 8px;
+    background: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 14px;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+
+.canvas-text-box .delete-text-btn:hover {
+    background: #cc0000;
+}
+
+
+@media (min-width: 320px) and (max-width: 500px) {
+    header {
+        flex-wrap: wrap;
+    }
+    body {
+        width: 100vw;
+        height: 100vh;
+    }
+    canvas {
+        width: 100%;
+        height: 50vh;
+    }
+    main {
+        height: 60vh;
+    }
 }
