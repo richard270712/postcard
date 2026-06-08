@@ -2,25 +2,28 @@ body {
     background-color: #975C5C;
     margin: 0;
     height: 100vh;
-    overflow: hidden; 
+    overflow: hidden;
 }
+
 header {
     background-color: #D9D9D9;
     display: flex;
     align-items: center;
     justify-content: space-around;
-    padding: 10px 0; 
+    padding: 10px 0;
 }
+
 main {
-    position: relative; 
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: calc(100vh - 120px); 
+    height: calc(100vh - 120px);
 }
+
 canvas {
     background-color: #D9D9D9;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); 
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 .pictures {
@@ -30,9 +33,9 @@ canvas {
     position: absolute;
     left: 50px;
     bottom: 50px;
-    z-index: 100; 
+    z-index: 100;
     border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 #paintpalette {
@@ -48,18 +51,18 @@ canvas {
 
 .canvas-text-box {
     position: absolute;
-    
+
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    
+
     display: flex;
     align-items: center;
     background: rgba(255, 255, 255, 0.9);
-    border: 2px dashed #4a2d2d; 
+    border: 2px dashed #4a2d2d;
     padding: 6px 10px;
     border-radius: 6px;
-    cursor: move; 
+    cursor: move;
     z-index: 50;
     user-select: none;
 }
@@ -71,7 +74,7 @@ canvas {
     font-family: 'Arial', sans-serif;
     font-size: 24px;
     font-weight: bold;
-    width: 160px; 
+    width: 160px;
     cursor: text;
 }
 
@@ -98,19 +101,72 @@ canvas {
 }
 
 
-@media (min-width: 320px) and (max-width: 500px) {
+canvas {
+    background-color: #D9D9D9;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+
+    width: min(1000px, 95vw);
+    height: auto;
+    aspect-ratio: 2 / 1;
+}
+
+header img {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+
+    body {
+        overflow-x: hidden;
+    }
+
     header {
         flex-wrap: wrap;
+        gap: 10px;
+        padding: 10px;
     }
-    body {
-        width: 100vw;
-        height: 100vh;
+
+    header img {
+        width: 40px;
+        height: 40px;
     }
-    canvas {
-        width: 100%;
-        height: 50vh;
+
+    #paintpalette {
+        width: 50px;
+        height: 50px;
     }
+
     main {
-        height: 60vh;
+        height: auto;
+        padding: 10px;
+    }
+
+    canvas {
+        width: 95vw;
+        height: auto;
+    }
+
+    .pictures {
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+
+        max-height: 50vh;
+        overflow-y: auto;
+
+        display: none;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .pictures img {
+        width: 70px;
+        height: 70px;
+    }
+
+    .canvas-text-box input {
+        font-size: 18px;
     }
 }
